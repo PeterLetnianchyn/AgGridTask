@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { fromEvent, merge, Observable, of } from 'rxjs';
+import { mapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-ag-grid';
+  online$: Observable<boolean> = merge(
+    of(navigator.onLine),
+    fromEvent(window, 'online').pipe(mapTo(true)),
+    fromEvent(window, 'offline').pipe(mapTo(false))
+  );
 }

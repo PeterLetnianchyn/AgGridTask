@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-ag-grid"
+    }
+  },
+  "defaultProject": "angular-ag-grid",
+  "cli": {
+    "analytics": "a9fa03a9-cf23-4ffd-9203-57058bb12947"
+  }
 }
